@@ -1,3 +1,4 @@
+
 <?php 
 function upload_foto($File){    
 	$uploadOk = 1;
@@ -36,7 +37,7 @@ function upload_foto($File){
 	}else{
 		//Create new filename:
         $NewName = date("YmdHis"). '.' . $FileExt;
-        $UploadDestination = "img/". $NewName; 
+        $UploadDestination = "gambar/". $NewName; 
 
 		if (move_uploaded_file($TmpLocation, $UploadDestination)) {
 			//echo "The file has been uploaded.";

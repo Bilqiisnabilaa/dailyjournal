@@ -80,7 +80,7 @@ include "koneksi.php";
   </nav>
   <!-- nav end -->
   <!-- hero begin -->
-  <section id="hero" class="text-center p-5 bg-danger-subtle text-sm-start">
+<section id="hero" class="text-center p-5 bg-danger-subtle text-sm-start">
     <div class="container">
       <div class="d-sm-flex flex-sm-row-reverse align-items-center">
         <img src="produk/hijab1.jpg" class="img-fluid" width="300" />
@@ -113,7 +113,7 @@ include "koneksi.php";
       ?>
         <div class="col">
           <div class="card h-100">
-            <img src="produk/<?= $row["gambar"]?>" class="card-img-top" alt="..." />
+            <img src="gambar/<?= $row["gambar"]?>" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title"><?= $row["judul"]?></h5>
               <p class="card-text">
@@ -140,37 +140,36 @@ include "koneksi.php";
       <h1 class="fw-bold display-4 pb-3">gallery</h1>
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="produk/hijab3.jpeg" class="d-block w-100" width="100" height="auto">
-          </div>
-          <div class="carousel-item">
-            <img src="produk/hijab4.jpeg" class="d-block w-100"  width="100" height="auto">
-          </div>
-          <div class="carousel-item">
-            <img src="produk/hijab5.jpeg" class="d-block w-100"  width="100" height="auto">
-          </div>
+        <?php
+        $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+        $hasil = $conn->query($sql);
+        $isActive = true; // Untuk menentukan slide pertama aktif
+        while ($row = $hasil->fetch_assoc()) {
+        ?>
+          <div class="carousel-item <?php if ($isActive) { echo 'active'; $isActive = false; } ?>">
+          <div class="d-flex justify-content-center">
+          <img src="gambar/<?= $row["gambar"] ?>" class="img-fluid" style="width: 50%; max-height: 400px; object-fit: cover;" alt="Gambar Gallery">
+
         </div>
-        <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+          </div>
+        <?php
+        }
+        ?>
       </div>
+      <!-- Kontrol navigasi carousel -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-  </section>
+  </div>
+</section>
   <!-- gallery end -->
    <!-- schedule begin -->
    <section id="schedule" class="text-center p-5">
@@ -260,7 +259,7 @@ include "koneksi.php";
       <div class="d-sm-flex align-items-center justify-content-center">
         <div class="p-3">
           <img
-            src="produk/hijab5.jpeg"
+            src="gambar/gambar5.jpg"
             class="rounded-circle border shadow"
             width="300"
           />

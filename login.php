@@ -10,6 +10,7 @@ if (isset($_SESSION['username'])) {
 	header("location:admin.php"); 
 }
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['username'];
   
@@ -50,7 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $conn->close();
 } else {
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="card-body">
           <div class="text-center mb-3">
             <i class="bi bi-person-circle h1 display-4"></i>
-            <p>Welcome to My Daily Journal</p>
+            <p>Welcome To My Daily Journal</p>
             <hr />
           </div>
           <form action="" method="post">
@@ -103,40 +103,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 </div>
 
-<link rel="icon" href="img/logo.png" />
-  </head>
-  <div class="container mt-5 pt-5 "
-      <div class="row">
-        <div class="col-12 col-sm-8 col-md-6 m-auto">
-          <div class="card border-0 shadow rounded-5">
-            <div class="card-body">
-              <div class="text-center mb-3">
-      <?php
-        //set variable username dan password dummy
-        $username = "admin";
-        $password = "123456";
 
-        //check apakah ada request dengan method POST yang dilakukan
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        //tampilkan isi dari variable POST menggunakan perulangan
-        foreach($_POST as $key => $val){
-         echo $key . " : " . $val ."<br>";
-        } 
-
-        //check apakah username dan password yang di POST sama dengan data dummy
-        if($_POST['username'] == $username AND $_POST['password'] == $password){
-          echo "Username dan Password Benar";
-        }else{
-          echo "Username dan Password Salah";
-        }
-        };
-        ?>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-
   </body>
 </html>
 <?php
